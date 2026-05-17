@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Goal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+        }
+
+        .card-box {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 600px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        .btn-custom {
+            width: 100%;
+        }
+
+        h3, h5 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card-box">
+
+    <h3>🎯 Create New Goal</h3>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- GOAL TITLE -->
+        <input class="form-control mb-3" name="title" placeholder="Enter your main goal" required>
+
+        <hr>
+
+        <h5>🪜 Add Steps</h5>
+
+        <!-- FIXED: same name="steps" so Django can use getlist() -->
+        <input name="steps" class="form-control mb-2" placeholder="Step 1">
+        <input name="steps" class="form-control mb-2" placeholder="Step 2">
+        <input name="steps" class="form-control mb-2" placeholder="Step 3">
+        <input name="steps" class="form-control mb-2" placeholder="Step 4">
+
+        <button class="btn btn-success btn-custom mt-3">
+            🚀 Create Goal
+        </button>
+    </form>
+
+    <a href="/dashboard/" class="btn btn-secondary btn-custom mt-3">
+        Back
+    </a>
+
+</div>
+
+</body>
+</html>

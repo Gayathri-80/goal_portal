@@ -1,0 +1,1 @@
+web: gunicorn goal_portal.wsgi:application
